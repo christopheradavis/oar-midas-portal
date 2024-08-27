@@ -37,6 +37,9 @@ class NPS(Resource):
 
 	def get(self, username):
 
+		if self.npsURL == '':
+			self.get_config_values()
+
 		claims = claims = {
 			'iss': 'NIST_ASD',
 			'iat': datetime.datetime.now(),
