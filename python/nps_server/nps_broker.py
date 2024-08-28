@@ -37,6 +37,7 @@ class NPS(Resource):
 
 	def get(self, username):
 
+		print('npsURL: ' + self.npsURL)
 		if self.npsURL == '':
 			self.get_config_values()
 
