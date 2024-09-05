@@ -55,7 +55,7 @@ class NPS(Resource):
 			"scope": "dataset",
 			"username": username
 		}
-		token = jwt.encode(claims, self.npsTokenSecret, algorithm='HS256')
+		token = jwt.encode(claims, self.nsdSecret, algorithm='HS256')
 		userid = username
 		print(token)
 
