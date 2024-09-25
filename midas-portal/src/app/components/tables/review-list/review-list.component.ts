@@ -42,6 +42,7 @@ export class ReviewListComponent implements OnInit {
       this.npsUI = config['npsUI'];
       if (! this.npsUI.endsWith('/'))
           this.npsUI += '/';
+      console.log('NPSAPI: ' + this.NPSAPI);
 
       this.statuses = [
           { label: 'Pending', value: 'Pending' },
