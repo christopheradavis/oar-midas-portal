@@ -76,6 +76,7 @@ export class DmpListComponent implements OnInit {
  * @param url is the endpoint of the dbio where we want to get data from
  */
   private fetchRecords(url: string) {
+    console.log('dmp fetch URL: ' + url);
     this.http.get(url, { headers: { Authorization: "Bearer "+this.authToken }})
       .pipe(map((responseData: any) => {
         console.log("TEST"+responseData)

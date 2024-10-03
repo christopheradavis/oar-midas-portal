@@ -89,8 +89,10 @@ class NPS(Resource):
 	def get_config_values(self):
 		"""read config values from env file and get API information"""
 		try: 
+			print(os.environ)
 			configurl = os.getenv("CONFIG_URL")
-			# print("Read config *********** ")
+			print("Read config *********** ")
+			print("Config URL: "+configurl)
 			resp = requests.get(configurl)
 			if resp.status_code >= 400:
 				print("Exception reading config data:"+configurl)
@@ -107,8 +109,7 @@ class NPS(Resource):
 			print('nps Token URL: ' + self.npsTokenURL)
 
 		except:	
-			# nothing for now
-			pass
+			print("Error reading config file")
 			
 # adding the defined resources along with their corresponding urls
 api.add_resource(NPS, '/nps/<string:username>')

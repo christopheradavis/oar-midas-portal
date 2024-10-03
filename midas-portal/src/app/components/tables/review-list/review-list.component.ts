@@ -42,7 +42,7 @@ export class ReviewListComponent implements OnInit {
       this.npsUI = config['npsUI'];
       if (! this.npsUI.endsWith('/'))
           this.npsUI += '/';
-      console.log('NPSAPI: ' + this.NPSAPI);
+      console.log('init NPSAPI: ' + this.NPSAPI);
 
       this.statuses = [
           { label: 'Pending', value: 'Pending' },
@@ -55,7 +55,9 @@ export class ReviewListComponent implements OnInit {
    * update the state of this component as the result of changes in its parent
    */
   ngOnChanges(changes: SimpleChanges) {
-      if (this.authToken && this.userId)
+      if (this.authToken && this.userId && this.NPSAPI)
+          console.log('change NPSAPI: ' + this.NPSAPI);
+          console.log('change userId: ' + this.userId);
           this.fetchRecords(this.NPSAPI+this.userId);
   }
 

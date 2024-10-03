@@ -105,7 +105,7 @@ export class LandingComponent implements OnInit {
    */
 
   public getUserInfo() {
-    return this.authsvc.getCredentials().subscribe(
+    /* return this.authsvc.getCredentials().subscribe(
       creds => {
         if (!creds || !creds.userId)
           throw new Error("Missing identity information in credentials");
@@ -123,14 +123,14 @@ export class LandingComponent implements OnInit {
       error => {
         alert("Unable to determine your identity");
       }
-    )/*
-    this.userId="TestId";
-    this.userEmail= "test.user@nist.gov",
-    this.userName= "Test",
-    this.userLastName= "User",
-    this.userOU= "MML",
+    ) */
+    this.userId="cnd7";
+    this.userEmail= "christopher.davis@nist.gov",
+    this.userName= "Christopher",
+    this.userLastName= "Davis",
+    this.userOU= "OISM",
     this.authToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0SWQiLCJ1c2VyRW1haWwiOiJ0ZXN0dXNlckB0ZXN0LmNvbSIsImV4cCI6MTY5ODcxOTAxOSwidXNlck5hbWUiOiJUZXN0VXNlciIsInVzZXJMYXN0TmFtZSI6IlRlc3RMYXN0In0.ntiPIo39kG78T7xbVrbJEfw4cz8jn--Bk-t7aRJdvPs"
-*/
+
   }
 
  
