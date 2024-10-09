@@ -90,10 +90,11 @@ class NPS(Resource):
 		"""read config values from env file and get API information"""
 		try: 
 			print(os.environ)
-			configurl = os.getenv("CONFIG_URL")
+			#configurl = os.getenv("CONFIG_URL")
+			configurl = "http://localhost:8084/midas-nps/local"
 			print("Read config *********** ")
-			print("Config URL: "+configurl)
 			resp = requests.get(configurl)
+			print("code: " + str(resp.status_code))
 			if resp.status_code >= 400:
 				print("Exception reading config data:"+configurl)
 				# exit()
@@ -102,14 +103,12 @@ class NPS(Resource):
 			testconfig = resp.json()
         	# print("testconfig 1:::", testconfig)
 			self.npsURL = testconfig['propertySources'][0]['source']['npsURL']
-			print('nps URL: ' + self.npsURL)
 			self.npsTokenSecret = testconfig['propertySources'][0]['source']['nsdSecret']
-			print('nps Token Secret: ' + self.npsTokenSecret)
 			self.npsTokenURL = testconfig['propertySources'][0]['source']['npsTokenURL']
-			print('nps Token URL: ' + self.npsTokenURL)
 
-		except:	
+		except Exception as e:	
 			print("Error reading config file")
+			print(str(e))
 			
 # adding the defined resources along with their corresponding urls
 api.add_resource(NPS, '/nps/<string:username>')
